@@ -1,0 +1,20 @@
+.node: &node
+  image: node:14.17.6
+
+.npm_install: &npm_install
+  before_script:
+    - npm install
+
+stages:
+  - test
+  - build
+  - deploy
+
+test:
+  stage: test
+  <<: *node
+  <<: *npm_install
+  script:
+    - npx tsc
+    - npm run lint
+

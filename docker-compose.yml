@@ -1,0 +1,9 @@
+version: "3.4"
+
+services: 
+  front:
+    image: "${MUSOLATEST_GATEWAYS_FRONT_IMAGE_NAME}"
+    restart: "always"
+    container_name: "musolatest-gateways-front"
+    ports:
+      - "127.0.0.1:${PORT}:80"
